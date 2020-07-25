@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+        src="https://code.jquery.com/jquery-3.5.1.slim.js"
+        integrity="sha256-DrT5NfxfbHvMHux31Lkhxg42LY6of8TaYyK50jnxRnM="
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <form action="{{ url_for('predict')}}" method="post">
+            <center><h2>Predictive Analysis</h2></center>
+            <div class="row">
+                <div class="col s12">
+                    <div class="row">
+                    <div class="input-field col s12">
+                        <input type="number" id="bedroom" name="bedroom">
+                        <label>Number of Bedrooms</label>
+                    </div>
+                    </div>
+                </div>
+                <div class="col s12">
+                    <div class="row">
+                    <div class="input-field col s12">
+                        <input type="number" id="area" name="area" required>
+                        <label>Area of House</label>
+                    </div>
+                    </div>
+                </div>
+                <div class="col s12">
+                    <div class="row">
+                    <div class="input-field col s12">
+                        <input type="number" id="bathroom" name="bathroom" required>
+                        <label>Number Of Bathrooms</label>
+                    </div>
+                    </div>
+                </div>
+                <div class="input-field col s12">
+                    <select>
+                        <option value="" disabled selected>Choose your option</option>
+                        <option value="Furnished">Furnished</option>
+                        <option value="Unfurnished">Unfurnished</option>
+                    </select>
+                    <label>Furniture</label>
+                </div>
+                <div class="input-field col s12">
+                    <select>
+                        <option value="" disabled selected>Choose your option</option>
+                        <option value="House">House</option>
+                        <option value="Condo">Condo</option>
+                        <option value="Apartment">Apartment</option>
+                        <option value="Town House">Town House</option>
+                        <option value="Land">Land</option>
+                        <option value="Duplex">Duplex</option>
+                    </select>
+                    <label>House Type</label>
+                </div>
+                <div class="input-field col s12">
+                    <select>
+                        <option value="" disabled selected>Choose your option</option>
+                        <option value="Attached Garage">Attached Garage</option>
+                        <option value="Detached Garage">Detached Garage</option>
+                        <option value="Street Parking">Street Parking</option>
+                        <option value="No Parking">No Parking</option>
+                    </select>
+                    <label>Parking Type</label>
+                </div>
+            </div>
+            <center><button id="sub" class="waves-effect waves-light btn" type="submit ">Calculate the Selling Price</button></center>
+        </form>
+    </div>
+    <script>
+        $(document).ready(function(){
+            $('select').formSelect();
+        })
+    </script>
+</body>
+
+</html>
