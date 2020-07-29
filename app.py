@@ -65,9 +65,9 @@ def predict():
         price = np.exp(prediction)
         price=round(price[0],2)
         if price<0:
-            return render_template('index.html',prediction_text="Housing Data provided is not valid")
+            return render_template('index.html',prediction_text="\nHousing Data provided is not valid")
         else:
-            return render_template('index.html',prediction_text="You Can Buy/Sell the house at {}".format(price))
+            return render_template('index.html',prediction_text="\nYou Can Buy/Sell the house at $ {}".format(price))
     else:
          return render_template('index.html')
 

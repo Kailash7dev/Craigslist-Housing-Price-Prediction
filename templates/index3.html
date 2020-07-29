@@ -9,15 +9,6 @@
         .dimension{
             width : 60vw !important;
         }
-        .input-field {
-            margin-bottom: 0 !important;        
-        }
-        label {
-            color: black !important;
-        }
-        h4 {
-            font-style: italic;
-        }
     </style>
     <script
         src="https://code.jquery.com/jquery-3.5.1.slim.js"
@@ -27,12 +18,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 
-<body style = "background: url(https://yasirkhan.ca/wp-content/uploads/2018/05/background3.jpg); background-size: 100% 100%;">
+<body>
     <div class="container dimension"> 
         <form action="{{ url_for('predict')}}" method="post">
-            <center><h3>Vancouver House Price Estimation</h3></center>
+            <center><h2>Vancouver House Price Estimation</h2></center>
             <div class="row">
                 <div class="col s12">
+                    <div class="row">
                     <div class="input-field col s12">
                         <select id="bedroom" name="bedroom">
                       	  <option value="" disabled selected>Choose your option</option>
@@ -46,16 +38,20 @@
                    	 </select>
                         <label>Number of Bedrooms</label>
                     </div>
+                    </div>
                 </div>
                 <div class="col s12">
+                    <div class="row">
                     <div class="input-field col s12">
                         <input type="number" id="area" name="area" required>
                         <label>Area of House</label>
                     </div>
+                    </div>
                 </div>
                 <div class="col s12">
+                    <div class="row">
                     <div class="input-field col s12">
-            		  	 <select id="bathroom" name="bathroom">
+		  	 <select id="bathroom" name="bathroom">
                       	  <option value="" disabled selected>Choose your option</option>
 			  <option value="1">1</option>
                       	  <option value="1.5">1.5</option>
@@ -65,48 +61,44 @@
                       	  <option value="4">4</option>
                       	  <option value="5">More than 4</option>
                    	 </select>
+                        
                         <label>Number Of Bathrooms</label>
                     </div>
-                </div>
-                <div class="col s12">
-                    <div class="input-field col s12">
-                        <select id="Finishing" name="Finishing">
-                            <option value="" disabled selected>Choose your option</option>
-                            <option value="1">Furnished</option>
-                            <option value="0">Unfurnished</option>
-                        </select>
-                        <label>Furniture</label>
                     </div>
                 </div>
-                <div class="col s12">
-                    <div class="input-field col s12">
-                        <select id="houseType" name="houseType">
-                            <option value="" disabled selected>Choose your option</option>
-                            <option value="House">House</option>
-                            <option value="Condo">Condo</option>
-                            <option value="Apartment">Apartment</option>
-                            <option value="Town House">Town House</option>
-                            <option value="Duplex">Duplex</option>
-    			<option value="Others">Others</option>
-                        </select>
-                        <label>House Type</label>
-                    </div>
+                <div class="input-field col s12">
+                    <select id="Finishing" name="Finishing">
+                        <option value="" disabled selected>Choose your option</option>
+                        <option value="1">Furnished</option>
+                        <option value="0">Unfurnished</option>
+                    </select>
+                    <label>Furniture</label>
                 </div>
-                <div class="col s12">
-                    <div class="input-field col s12">
-                        <select id="parkingType" name="parkingType">
-                            <option value="" disabled selected>Choose your option</option>
-                            <option value="Attached Garage">Attached Garage</option>
-                            <option value="Detached Garage">Detached Garage</option>
-                            <option value="Street Parking">Street Parking</option>
-                            <option value="No Parking">No Parking</option>
-                        </select>
-                        <label>Parking Type</label>
-                    </div>
+                <div class="input-field col s12">
+                    <select id="houseType" name="houseType">
+                        <option value="" disabled selected>Choose your option</option>
+                        <option value="House">House</option>
+                        <option value="Condo">Condo</option>
+                        <option value="Apartment">Apartment</option>
+                        <option value="Town House">Town House</option>
+                        <option value="Duplex">Duplex</option>
+			<option value="Others">Others</option>
+                    </select>
+                    <label>House Type</label>
+                </div>
+                <div class="input-field col s12">
+                    <select id="parkingType" name="parkingType">
+                        <option value="" disabled selected>Choose your option</option>
+                        <option value="Attached Garage">Attached Garage</option>
+                        <option value="Detached Garage">Detached Garage</option>
+                        <option value="Street Parking">Street Parking</option>
+                        <option value="No Parking">No Parking</option>
+                    </select>
+                    <label>Parking Type</label>
                 </div>
             </div>
             <center><button id="sub" type="submit " class="waves-effect waves-light btn">Calculate the Selling Price</button></center>
-		       <center><h5>{{ prediction_text }} </h5></center>
+		       <center><h3>{{ prediction_text }}</h3></center>
     </div>
         </form>
     </div>
